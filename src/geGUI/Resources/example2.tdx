@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<TDX version="1">
+  <Tool name="Dummy" version="0.1.4874.35098">
+    <Description>fulldesc</Description>
+    <Infile name="file">
+      <Description>desc1</Description>
+    </Infile>
+    <Outfile name="file_out">
+      <Description>desc2</Description>
+    </Outfile>
+    <String name="string">
+      <Description>desc3</Description>
+    </String>
+    <Flag name="flag1">
+      <Description>desc4</Description>
+    </Flag>
+    <Int name="int">
+      <Description>desc5</Description>
+      <Min>15</Min>
+      <Max>30</Max>
+    </Int>
+    <InfileList name="filelist">
+      <Description>desc6</Description>
+    </InfileList>
+    <Float name="double">
+      <Description>desc7</Description>
+      <Min>15.05</Min>
+      <Max>30.10</Max>
+    </Float>
+    <Enum name="enum">
+      <Description>desc8</Description>
+      <Value>bli</Value>
+      <Value>bla</Value>
+      <Value>bluff</Value>
+    </Enum>
+    <Infile name="file2">
+      <Description>desc9</Description>
+      <Optional />
+    </Infile>
+    <Outfile name="file_out2">
+      <Description>desc10</Description>
+      <Optional />
+    </Outfile>
+    <String name="string2">
+      <Description>desc11</Description>
+      <Optional defaultValue="default_value" />
+    </String>
+    <Flag name="flag2">
+      <Description>desc12</Description>
+    </Flag>
+    <Int name="int2">
+      <Description>desc13</Description>
+      <Optional defaultValue="42" />
+    </Int>
+    <InfileList name="filelist2">
+      <Description>desc14</Description>
+      <Optional />
+    </InfileList>
+    <Float name="double2">
+      <Description>desc15</Description>
+      <Optional defaultValue="0.42" />
+    </Float>
+    <Enum name="enum2">
+      <Description>desc16</Description>
+      <Optional defaultValue="2" />
+      <Value>1</Value>
+      <Value>2</Value>
+      <Value>3</Value>
+    </Enum>
+  </Tool>
+</TDX>

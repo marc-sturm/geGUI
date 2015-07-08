@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/Resources">
+        <file>Icons/icon.png</file>
+        <file>Resources/TDX_v1.xsd</file>
+        <file>Icons/Delete.png</file>
+        <file>Icons/Import.png</file>
+        <file>Icons/ImportTDX.png</file>
+        <file>Icons/Attention.png</file>
+    </qresource>
+</RCC>
