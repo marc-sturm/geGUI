@@ -17,6 +17,6 @@ Features:
 #Tool Definition XML (TDX)
 TDX stands for the "Tool Definition XML" format. A TDX file describes the command line interface of a tool. It captures the tool documentation, various parameters, parameter documentation.
 <br>
-The XML schema of the TDX format can be found [here](src\geGUI\Resources\TDX_v1.xsd).
+The XML schema of the TDX format can be found [here](/src/geGUI/Resources/TDX_v1.xsd).
 
 By convention, the TDX file corresponding to an executable/script has the same file name with the appended extension '.tdx'.
