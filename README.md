@@ -13,6 +13,10 @@ Features:
  * Handling of input file, input file list, output file, string, integer, float, enum and flag parameters.
  * Handling of optional parameters and default values.
 
+### Building
+ 
+Just clone the repository and open the `src/geGUI.pro` file in QtCreator.
+After a successful build, the executable and libraries are in the `bin` folder.
 
 #Tool Definition XML (TDX)
 TDX stands for the "Tool Definition XML" format. A TDX file describes the command line interface of a tool. It captures the tool documentation, various parameters, parameter documentation.
