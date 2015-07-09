@@ -15,7 +15,7 @@ Features:
 
 ### Building
  
-Just clone the repository and open the `src/geGUI.pro` file in QtCreator.
+Just clone the repository and open the `src/geGUI.pro` file in QtCreator.  
 After a successful build, the executable and libraries are in the `bin` folder.
 
 #Tool Definition XML (TDX)
