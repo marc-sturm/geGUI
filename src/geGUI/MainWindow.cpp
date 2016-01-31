@@ -309,7 +309,7 @@ void MainWindow::appendOutput(QString text)
   if (text=="") return;
 
   ui.output->moveCursor(QTextCursor::End);
-  ui.output->insertPlainText(text);
+  ui.output->insertPlainText(text.replace("\r", ""));
 
   ui.output_dock->show();
 }
