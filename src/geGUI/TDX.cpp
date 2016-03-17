@@ -373,10 +373,10 @@ QString TDX::evaluateForm(QGroupBox* box, QString filename)
     else if (element.tagName()=="InfileList")
     {
       MultiFileChooser* field = box->findChild<MultiFileChooser*>("param_" + param_name);
-      output += " -" + param_name;
+	  output += " -" + param_name + " ";
       foreach(QString file, field->files())
       {
-        output += escape(file);
+        output += escape(file) + " ";
       }
     }
     else
