@@ -1,25 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:element name="Value" type="xs:string">
-		<xs:annotation><xs:documentation>List of predefined valid values.</xs:documentation></xs:annotation>
+		<xs:annotation>
+			<xs:documentation>List of predefined valid values.</xs:documentation>
+		</xs:annotation>
 	</xs:element>
 	<xs:element name="TDX">
-		<xs:annotation><xs:documentation>Main node of the schema.</xs:documentation></xs:annotation>
+		<xs:annotation>
+			<xs:documentation>Main node of the schema.</xs:documentation>
+		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="Tool"/>
 			</xs:sequence>
 			<xs:attribute name="version" type="xs:integer" use="required">
-				<xs:annotation><xs:documentation>Version number of the TDX file.</xs:documentation></xs:annotation>
+				<xs:annotation>
+					<xs:documentation>Version number of the TDX file.</xs:documentation>
+				</xs:annotation>
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="Tool">
-		<xs:annotation><xs:documentation>Tool node that contains the desciption and all the paramters.</xs:documentation></xs:annotation>
+		<xs:annotation>
+			<xs:documentation>Tool node that contains the desciption and all the paramters.</xs:documentation>
+		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="Description">
-					<xs:annotation><xs:documentation>Text description of the tool.</xs:documentation></xs:annotation>
+					<xs:annotation>
+						<xs:documentation>Text description of the tool.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="ExtendedDescription" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Extended text description of the tool.</xs:documentation>
+					</xs:annotation>
 				</xs:element>
 				<xs:choice maxOccurs="unbounded">
 					<xs:element ref="Infile"/>
@@ -33,162 +48,237 @@
 				</xs:choice>
 			</xs:sequence>
 			<xs:attribute name="version" type="xs:string" use="required">
-				<xs:annotation><xs:documentation>Version number of the tool. Used for displaying.</xs:documentation></xs:annotation>
+				<xs:annotation>
+					<xs:documentation>Version number of the tool. Used for displaying.</xs:documentation>
+				</xs:annotation>
 			</xs:attribute>
 			<xs:attribute name="name" type="xs:string" use="required">
-				<xs:annotation><xs:documentation>Name of the tool. This name is for displaying only. For execution, the file extension '.tdx' of the TDX file is stripped off and the remaining filename is used as executable name.</xs:documentation></xs:annotation>
+				<xs:annotation>
+					<xs:documentation>Name of the tool. This name is for displaying only. For execution, the file extension '.tdx' of the TDX file is stripped off and the remaining filename is used as executable name.</xs:documentation>
+				</xs:annotation>
 			</xs:attribute>
 			<xs:attribute name="interpreter" type="xs:string">
-				<xs:annotation><xs:documentation>The interpreter used, e.g. for scripts. This attribute should contain the full absolute path, or the tool name only. When only the tool name is given, the path is looked up in the appropriate environment variables.</xs:documentation></xs:annotation>
+				<xs:annotation>
+					<xs:documentation>The interpreter used, e.g. for scripts. This attribute should contain the full absolute path, or the tool name only. When only the tool name is given, the path is looked up in the appropriate environment variables.</xs:documentation>
+				</xs:annotation>
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="String">
-		<xs:annotation><xs:documentation>String parameter.</xs:documentation></xs:annotation>
+		<xs:annotation>
+			<xs:documentation>String parameter.</xs:documentation>
+		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="Description"/>
 				<xs:element name="Optional" minOccurs="0">
-					<xs:annotation><xs:documentation>If this element is present, the parameter is optional - mandatory if not present.</xs:documentation></xs:annotation>
+					<xs:annotation>
+						<xs:documentation>If this element is present, the parameter is optional - mandatory if not present.</xs:documentation>
+					</xs:annotation>
 					<xs:complexType>
 						<xs:attribute name="defaultValue" type="xs:string">
-							<xs:annotation><xs:documentation>The default value used if the parameter is not set. This attribute is used for displaying only.</xs:documentation></xs:annotation>
+							<xs:annotation>
+								<xs:documentation>The default value used if the parameter is not set. This attribute is used for displaying only.</xs:documentation>
+							</xs:annotation>
 						</xs:attribute>
 					</xs:complexType>
 				</xs:element>
 			</xs:sequence>
 			<xs:attribute name="name" type="xs:string" use="required">
-				<xs:annotation><xs:documentation>Parameter name. Used as command line parameter name as well (prefixed with a dash).</xs:documentation></xs:annotation>
+				<xs:annotation>
+					<xs:documentation>Parameter name. Used as command line parameter name as well (prefixed with a dash).</xs:documentation>
+				</xs:annotation>
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="Outfile">
-		<xs:annotation><xs:documentation>Output file parameter.</xs:documentation></xs:annotation>
+		<xs:annotation>
+			<xs:documentation>Output file parameter.</xs:documentation>
+		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="Description"/>
 				<xs:element name="Optional" minOccurs="0">
-					<xs:annotation><xs:documentation>If this element is present, the parameter is optional - mandatory if not present.</xs:documentation></xs:annotation>
+					<xs:annotation>
+						<xs:documentation>If this element is present, the parameter is optional - mandatory if not present.</xs:documentation>
+					</xs:annotation>
 					<xs:complexType/>
 				</xs:element>
 			</xs:sequence>
 			<xs:attribute name="name" type="xs:string" use="required">
-				<xs:annotation><xs:documentation>Parameter name. Used as command line parameter name as well (prefixed with a dash).</xs:documentation></xs:annotation>
+				<xs:annotation>
+					<xs:documentation>Parameter name. Used as command line parameter name as well (prefixed with a dash).</xs:documentation>
+				</xs:annotation>
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="Int">
-		<xs:annotation><xs:documentation>Integer parameter.</xs:documentation></xs:annotation>
+		<xs:annotation>
+			<xs:documentation>Integer parameter.</xs:documentation>
+		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="Description"/>
 				<xs:element name="Optional" minOccurs="0">
-					<xs:annotation><xs:documentation>If this element is present, the parameter is optional - mandatory if not present.</xs:documentation></xs:annotation>
+					<xs:annotation>
+						<xs:documentation>If this element is present, the parameter is optional - mandatory if not present.</xs:documentation>
+					</xs:annotation>
 					<xs:complexType>
 						<xs:attribute name="defaultValue" type="xs:integer">
-							<xs:annotation><xs:documentation>The default value used if the parameter is not set. This attribute is used for displaying only.</xs:documentation></xs:annotation>
+							<xs:annotation>
+								<xs:documentation>The default value used if the parameter is not set. This attribute is used for displaying only.</xs:documentation>
+							</xs:annotation>
 						</xs:attribute>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="Min" type="xs:integer" minOccurs="0">
-					<xs:annotation><xs:documentation>Minimum valid value. Can be used for paramter valudation.</xs:documentation></xs:annotation>
+					<xs:annotation>
+						<xs:documentation>Minimum valid value. Can be used for paramter valudation.</xs:documentation>
+					</xs:annotation>
 				</xs:element>
 				<xs:element name="Max" type="xs:integer" minOccurs="0">
-					<xs:annotation><xs:documentation>Maximum valid value. Can be used for paramter valudation.</xs:documentation></xs:annotation>
+					<xs:annotation>
+						<xs:documentation>Maximum valid value. Can be used for paramter valudation.</xs:documentation>
+					</xs:annotation>
 				</xs:element>
 			</xs:sequence>
 			<xs:attribute name="name" type="xs:string" use="required">
-				<xs:annotation><xs:documentation>Parameter name. Used as command line parameter name as well (prefixed with a dash).</xs:documentation></xs:annotation>
+				<xs:annotation>
+					<xs:documentation>Parameter name. Used as command line parameter name as well (prefixed with a dash).</xs:documentation>
+				</xs:annotation>
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="InfileList">
-		<xs:annotation><xs:documentation>Input file list parameter.</xs:documentation></xs:annotation>
+		<xs:annotation>
+			<xs:documentation>Input file list parameter.</xs:documentation>
+		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="Description"/>
 				<xs:element name="Optional" minOccurs="0">
-					<xs:annotation><xs:documentation>If this element is present, the parameter is optional - mandatory if not present.</xs:documentation></xs:annotation>
+					<xs:annotation>
+						<xs:documentation>If this element is present, the parameter is optional - mandatory if not present.</xs:documentation>
+					</xs:annotation>
 					<xs:complexType/>
 				</xs:element>
 			</xs:sequence>
 			<xs:attribute name="name" type="xs:string" use="required">
-				<xs:annotation><xs:documentation>Parameter name. Used as command line parameter name as well (prefixed with a dash).</xs:documentation></xs:annotation>
+				<xs:annotation>
+					<xs:documentation>Parameter name. Used as command line parameter name as well (prefixed with a dash).</xs:documentation>
+				</xs:annotation>
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="Infile">
-		<xs:annotation><xs:documentation>Input file parameter.</xs:documentation></xs:annotation>
+		<xs:annotation>
+			<xs:documentation>Input file parameter.</xs:documentation>
+		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="Description"/>
 				<xs:element name="Optional" minOccurs="0">
-					<xs:annotation><xs:documentation>If this element is present, the parameter is optional - mandatory if not present.</xs:documentation></xs:annotation>
+					<xs:annotation>
+						<xs:documentation>If this element is present, the parameter is optional - mandatory if not present.</xs:documentation>
+					</xs:annotation>
 					<xs:complexType/>
 				</xs:element>
 			</xs:sequence>
 			<xs:attribute name="name" type="xs:string" use="required">
-				<xs:annotation><xs:documentation>Parameter name. Used as command line parameter name as well (prefixed with a dash).</xs:documentation></xs:annotation>
+				<xs:annotation>
+					<xs:documentation>Parameter name. Used as command line parameter name as well (prefixed with a dash).</xs:documentation>
+				</xs:annotation>
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="Float">
-		<xs:annotation><xs:documentation>Floating point number parameter.</xs:documentation></xs:annotation>
+		<xs:annotation>
+			<xs:documentation>Floating point number parameter.</xs:documentation>
+		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="Description"/>
 				<xs:element name="Optional" minOccurs="0">
-					<xs:annotation><xs:documentation>If this element is present, the parameter is optional - mandatory if not present.</xs:documentation></xs:annotation>
+					<xs:annotation>
+						<xs:documentation>If this element is present, the parameter is optional - mandatory if not present.</xs:documentation>
+					</xs:annotation>
 					<xs:complexType>
 						<xs:attribute name="defaultValue" type="xs:float">
-							<xs:annotation><xs:documentation>The default value used if the parameter is not set. This attribute is used for displaying only.</xs:documentation></xs:annotation>
+							<xs:annotation>
+								<xs:documentation>The default value used if the parameter is not set. This attribute is used for displaying only.</xs:documentation>
+							</xs:annotation>
 						</xs:attribute>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="Min" type="xs:float" minOccurs="0">
-					<xs:annotation><xs:documentation>Minimum valid value. Can be used for paramter valudation.</xs:documentation></xs:annotation>
+					<xs:annotation>
+						<xs:documentation>Minimum valid value. Can be used for paramter valudation.</xs:documentation>
+					</xs:annotation>
 				</xs:element>
 				<xs:element name="Max" type="xs:float" minOccurs="0">
-					<xs:annotation><xs:documentation>Maximum valid value. Can be used for paramter valudation.</xs:documentation></xs:annotation>
+					<xs:annotation>
+						<xs:documentation>Maximum valid value. Can be used for paramter valudation.</xs:documentation>
+					</xs:annotation>
 				</xs:element>
 			</xs:sequence>
 			<xs:attribute name="name" type="xs:string" use="required">
-				<xs:annotation><xs:documentation>Parameter name. Used as command line parameter name as well (prefixed with a dash).</xs:documentation></xs:annotation>
+				<xs:annotation>
+					<xs:documentation>Parameter name. Used as command line parameter name as well (prefixed with a dash).</xs:documentation>
+				</xs:annotation>
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="Flag">
-		<xs:annotation><xs:documentation>Flag parameter (two states only, present or not).</xs:documentation></xs:annotation>
+		<xs:annotation>
+			<xs:documentation>Flag parameter (two states only, present or not).</xs:documentation>
+		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="Description"/>
 			</xs:sequence>
 			<xs:attribute name="name" type="xs:string" use="required">
-				<xs:annotation><xs:documentation>Parameter name. Used as command line parameter name as well (prefixed with a dash).</xs:documentation></xs:annotation>
+				<xs:annotation>
+					<xs:documentation>Parameter name. Used as command line parameter name as well (prefixed with a dash).</xs:documentation>
+				</xs:annotation>
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="Enum">
-		<xs:annotation><xs:documentation>Enumeration parameter (one of several predefined values is selected).</xs:documentation></xs:annotation>
+		<xs:annotation>
+			<xs:documentation>Enumeration parameter (one of several predefined values is selected).</xs:documentation>
+		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="Description"/>
 				<xs:element name="Optional" minOccurs="0">
-					<xs:annotation><xs:documentation>If this element is present, the parameter is optional - mandatory if not present.</xs:documentation></xs:annotation>
+					<xs:annotation>
+						<xs:documentation>If this element is present, the parameter is optional - mandatory if not present.</xs:documentation>
+					</xs:annotation>
 					<xs:complexType>
 						<xs:attribute name="defaultValue" type="xs:string">
-							<xs:annotation><xs:documentation>The default value used if the parameter is not set. This attribute is used for displaying only.</xs:documentation></xs:annotation>
+							<xs:annotation>
+								<xs:documentation>The default value used if the parameter is not set. This attribute is used for displaying only.</xs:documentation>
+							</xs:annotation>
 						</xs:attribute>
 					</xs:complexType>
 				</xs:element>
 				<xs:element ref="Value" minOccurs="2" maxOccurs="unbounded"/>
 			</xs:sequence>
 			<xs:attribute name="name" type="xs:string" use="required">
-				<xs:annotation><xs:documentation>Parameter name. Used as command line parameter name as well (prefixed with a dash).</xs:documentation></xs:annotation>
+				<xs:annotation>
+					<xs:documentation>Parameter name. Used as command line parameter name as well (prefixed with a dash).</xs:documentation>
+				</xs:annotation>
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="Description" type="xs:string">
-		<xs:annotation><xs:documentation>Description text.</xs:documentation></xs:annotation>
+		<xs:annotation>
+			<xs:documentation>Description text.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ExtendedDescription" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Extended dscription text.</xs:documentation>
+		</xs:annotation>
 	</xs:element>
 </xs:schema>

@@ -66,12 +66,21 @@ void TDX::createForm(QGroupBox* box, QString filename)
       description = description.replace("\n", " ");
       description = description.replace("\t", " ");
       description = description.replace("  ", " ");
-      QLabel* label_d = new QLabel(description);
+	  QLabel* label_d = new QLabel(description);
       label_d->setObjectName("desc");
       label_d->setWordWrap(true);
       layout->addWidget(label_d, 0, 0, 1, 3);
       continue;
     }
+
+	//special handling: tool extended description tag
+	if (element.tagName()=="ExtendedDescription")
+	{
+	  QLabel* label_d = box->findChild<QLabel*>("desc");
+	  if (label_d==0) THROW(ProgrammingException, "Descripton label is not present!");
+	  label_d->setToolTip(element.text().trimmed());
+	  continue;
+	}
 
     //add optional checkbox to layout
     QString param_name = element.attribute("name");
